@@ -26,32 +26,32 @@ export default {
                 primary: {
                     DEFAULT: "var(--primary)",
                     dark: "var(--primary-dark)",
-                    active: "var(--primary-active)",
+                    content: "var(--primary-content)",
                 },
                 secondary: {
                     DEFAULT: "var(--secondary)",
                     dark: "var(--secondary-dark)",
-                    active: "var(--secondary-active)",
+                    content: "var(--secondary-content)",
                 },
                 success: {
                     DEFAULT: "var(--success)",
                     dark: "var(--success-dark)",
-                    active: "var(--success-active)",
+                    content: "var(--success-content)",
                 },
                 warning: {
                     DEFAULT: "var(--warning)",
                     dark: "var(--warning-dark)",
-                    active: "var(--warning-active)",
+                    content: "var(--warning-content)",
                 },
                 error: {
                     DEFAULT: "var(--error)",
                     dark: "var(--error-dark)",
-                    active: "var(--error-active)",
+                    content: "var(--error-content)",
                 },
                 danger: {
                     DEFAULT: "var(--danger)",
                     dark: "var(--danger-dark)",
-                    active: "var(--danger-active)",
+                    content: "var(--danger-content)",
                 },
             },
         },

@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --primary: #51C099;
+        --primary-dark: #38AE9D;
+        --primary-content: #393939;
+        --secondary: #00dac0;
+        --secondary-dark: #027f71;
+        --secondary-content: #393939;
+        --success: #00c853;
+        --success-dark: #00e676;
+        --success-content: #efefef;
+        --warning: #ffa000;
+        --warning-dark: #ffb300;
+        --warning-content: #efefef;
+        --error: #d32f2f;
+        --error-dark: #f44336;
+        --error-content: #efefef;
+        --danger: #8f0000;
+        --danger-dark: rgb(50, 1, 1);
+        --danger-content: white;
+    }
+}
