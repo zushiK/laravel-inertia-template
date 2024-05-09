@@ -1,0 +1,79 @@
+<?php
+
+namespace DummyNamespace;
+
+
+use App\Http\Controllers\Controller;
+use App\Http\RequestsDummyNM\DummyModelRequest;
+use App\ServicesDummyNM\DummyModelService;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+
+class DummyClass extends Controller
+{
+    /**
+     * @param DummyModelService $repository
+     */
+    public function __construct(private DummyModelService $service)
+    {
+    }
+
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function index(Request $request)
+    {
+        $search = $request->freeword ? ["freeword" => $request->freeword] : [];
+        $datas = $this->service->paginate($request->perpage, $search);
+        return Inertia::render('DummyBNM/DummyModel/Index', compact("datas", "search"));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function create()
+    {
+        return Inertia::render('DummyBNM/DummyModel/Create');
+    }
+
+    /**
+     * @param  DummyModelRequest  $request
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function store(DummyModelRequest $request)
+    {
+        $this->service->create($request->validated());
+        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "新規作成が完了しました。");
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function edit($id)
+    {
+        $data = $this->service->find($id);
+        return Inertia::render('DummyBNM/DummyModel/Update', compact("data"));
+    }
+
+    /**
+     * @param  CustomerRequest  $request
+     * @param  string $id
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function update(DummyModelRequest $request, $id)
+    {
+        $a = $this->service->update($id, $request->validated());
+        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "更新が完了しました");
+    }
+
+    /**
+     * @param  string $id
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $a = $this->service->delete($id);
+        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "削除しました");
+    }
+}
