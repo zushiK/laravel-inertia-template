@@ -1,0 +1,9 @@
+type IndexType = {};
+
+export default function Index(props: IndexType) {
+  return (
+    <>
+      <h1>Index</h1>
+    </>
+  );
+}

@@ -58,6 +58,12 @@ class GenerateGCommand extends Command
         Artisan::call('make:request', ['name' => $m  . "Request"]);
         echo Artisan::output();
 
+        Artisan::call('make:inertia-index', ['name' => $m]);
+        echo Artisan::output();
+
+        Artisan::call('make:inertia-create', ['name' => $m]);
+        echo Artisan::output();
+
         $this->info("Genarate Successfully!");
     }
 }

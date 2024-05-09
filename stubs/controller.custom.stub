@@ -26,7 +26,7 @@ class DummyClass extends Controller
     {
         $search = $request->freeword ? ["freeword" => $request->freeword] : [];
         $datas = $this->service->paginate($request->perpage, $search);
-        return Inertia::render('DummyBNM/DummyModel/Index', compact("datas", "search"));
+        return Inertia::render('DummyBNM/Index', compact("datas", "search"));
     }
 
     /**
@@ -34,7 +34,7 @@ class DummyClass extends Controller
      */
     public function create()
     {
-        return Inertia::render('DummyBNM/DummyModel/Create');
+        return Inertia::render('DummyBNM/Create');
     }
 
     /**
@@ -44,7 +44,7 @@ class DummyClass extends Controller
     public function store(DummyModelRequest $request)
     {
         $this->service->create($request->validated());
-        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "新規作成が完了しました。");
+        return to_route("DummyDotNm.index")->with("success", "新規作成が完了しました。");
     }
 
     /**
@@ -53,7 +53,7 @@ class DummyClass extends Controller
     public function edit($id)
     {
         $data = $this->service->find($id);
-        return Inertia::render('DummyBNM/DummyModel/Update', compact("data"));
+        return Inertia::render('DummyBNM/Update', compact("data"));
     }
 
     /**
@@ -64,7 +64,7 @@ class DummyClass extends Controller
     public function update(DummyModelRequest $request, $id)
     {
         $a = $this->service->update($id, $request->validated());
-        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "更新が完了しました");
+        return to_route("DummyDotNm.index")->with("success", "更新が完了しました");
     }
 
     /**
@@ -74,6 +74,6 @@ class DummyClass extends Controller
     public function destroy($id)
     {
         $a = $this->service->delete($id);
-        return to_route("DummyDotNm.DummyLowerModel.index")->with("success", "削除しました");
+        return to_route("DummyDotNm.index")->with("success", "削除しました");
     }
 }

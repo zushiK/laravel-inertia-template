@@ -9,23 +9,23 @@ use Illuminate\Console\GeneratorCommand as Command;
 /**
  * https://qiita.com/schrosis/items/8253b38db735f0d20cb7
  */
-class MakeCustomController extends Command
+class MakeInertiaCreate extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $name = 'make:custom-controller';
+    protected $name = 'make:inertia-create';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new custome controller class';
+    protected $description = 'Create a new inertia template';
 
-    protected $type = 'Custome Controller';
+    protected $type = 'Inertia';
 
     /**
      * スタブファイル指定
@@ -34,18 +34,21 @@ class MakeCustomController extends Command
      */
     protected function getStub()
     {
-        return base_path('/stubs/controller.custom.stub');
+        return base_path('/stubs/inertia-create.stub');
     }
 
     /**
      * クラスのデフォルトの名前空間を取得する
      *
-     * @param  string  $rootNamespace
+     * @param  string  $name
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getPath($name)
     {
-        return $rootNamespace . '\Http\Controllers';
+        $a = explode("\\", $name);
+        array_shift($a);
+        $model = implode("/", $a);
+        return "resources/js/Pages/" . $model . "/Create.tsx";
     }
 
     /**
@@ -99,17 +102,11 @@ class MakeCustomController extends Command
      */
     protected function buildClass($name)
     {
-        $model = $this->option('model');
-        $lowermodel = strtolower($model);
         $s = explode("/", $this->argument("name"));
         array_pop($s);
-
         $replace = [
-            'DummyModel' => $model,
-            'DummyLowerModel' => $lowermodel,
-            'DummyBNM' => implode("/", [...$s, $model]) ? implode("/", [...$s, $model]) : "",
-            'DummyNM' => implode("\\", $s) ? "\\" . implode("\\", $s) : "",
-            'DummyDotNm' => strtolower(implode(".", [...$s, $model]))
+            'DummyModel' => $this->option('model'),
+            'DummyNM' => implode("\\", $s) ? "\\" . implode("\\", $s) : ""
         ];
 
         return str_replace(
