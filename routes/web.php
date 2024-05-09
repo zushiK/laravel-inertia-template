@@ -24,4 +24,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+// ルーティング例
+// Route::prefix("test")
+//     ->as("test.")
+//     ->controller(\App\Http\Controllers\TestController::class)->group(function () {
+//         Route::get("/", "index")->name("index");
+//         Route::get("create", "create")->name("create");
+//     });
+
+require __DIR__ . '/auth.php';
