@@ -50,7 +50,7 @@ export default function ForgotPassword({ status }: Props) {
                     handleChange={onHandleChange}
                 />
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="flex items-center justify-center mt-4">
                     <Button
                         className="ml-4 bg-gray-900"
                         processing={processing}

@@ -45,7 +45,7 @@ export default function ResetPassword({ token, email }: Props) {
 
             <form onSubmit={submit}>
                 <div>
-                    <Label forInput="email" value="Email" />
+                    <Label forInput="email" value="メールアドレス" />
 
                     <Input
                         type="email"
@@ -58,7 +58,7 @@ export default function ResetPassword({ token, email }: Props) {
                 </div>
 
                 <div className="mt-4">
-                    <Label forInput="password" value="Password" />
+                    <Label forInput="password" value="パスワード" />
 
                     <Input
                         type="password"
@@ -74,7 +74,7 @@ export default function ResetPassword({ token, email }: Props) {
                 <div className="mt-4">
                     <Label
                         forInput="password_confirmation"
-                        value="Confirm Password"
+                        value="パスワード(確認)"
                     />
 
                     <Input
@@ -87,7 +87,7 @@ export default function ResetPassword({ token, email }: Props) {
                     />
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="flex items-center justify-center mt-4">
                     <Button
                         className="ml-4 bg-gray-900"
                         processing={processing}
