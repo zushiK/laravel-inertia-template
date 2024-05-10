@@ -6,29 +6,33 @@ import {
     Squares2X2Icon,
     TruckIcon
 } from "@heroicons/react/20/solid";
+import { Link } from "@inertiajs/react";
 
 import { NavLink } from "@mantine/core";
 
 export default function SideNavi() {
     return (
         <>
-            <NavLink
-                color="cyan"
-                active
+            <ParialChildNaviLink
                 label="ダッシュボード"
-                leftSection={<Squares2X2Icon className="w-5 h-5" />}
+                link="home"
+                icon={<Squares2X2Icon className="w-5 h-5" />}
             />
 
-            <NavLink
-                defaultOpened={true}
+            <PariaGrouplNaviLink
                 label="商品管理"
-                leftSection={<CubeIcon className="w-5 h-5" />}
-                childrenOffset={28}
+                icon={<CubeIcon className="w-5 h-5" />}
             >
-                <NavLink label="商品一覧" />
-                <NavLink label="カテゴリ管理" />
-                <NavLink label="商品画像管理" />
-            </NavLink>
+                <ParialChildNaviLink label="商品一覧" link="product.index" />
+                <ParialChildNaviLink
+                    label="カテゴリ管理"
+                    link="product.index"
+                />
+                <ParialChildNaviLink
+                    label="商品画像管理"
+                    link="product.index"
+                />
+            </PariaGrouplNaviLink>
 
             <NavLink
                 defaultOpened={true}
@@ -77,3 +81,41 @@ export default function SideNavi() {
         </>
     );
 }
+
+type PariaGrouplNaviLinkType = {
+    children: JSX.Element[];
+    label: string;
+    icon: JSX.Element;
+};
+
+const PariaGrouplNaviLink = (props: PariaGrouplNaviLinkType) => {
+    return (
+        <NavLink
+            defaultOpened={true}
+            label="商品管理"
+            leftSection={<CubeIcon className="w-5 h-5" />}
+            childrenOffset={28}
+        >
+            {props.children}
+        </NavLink>
+    );
+};
+
+type ParialChildNaviLinkType = {
+    label: string;
+    link: string;
+    icon?: JSX.Element;
+};
+
+const ParialChildNaviLink = (props: ParialChildNaviLinkType) => {
+    return (
+        <Link href={route(props.link)}>
+            <NavLink
+                color="wml"
+                leftSection={props.icon}
+                label={props.label}
+                active={route().current(props.link)}
+            />
+        </Link>
+    );
+};

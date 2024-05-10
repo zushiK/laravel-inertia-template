@@ -14,6 +14,20 @@ const theme = createTheme({
         md: "900px",
         lg: "1200px",
         xl: "1600px"
+    },
+    colors: {
+        wml: [
+            "#e5fdf4",
+            "#d6f4ea",
+            "#b3e6d3",
+            "#8cd6bc",
+            "#6bc9a8",
+            "#55c29c",
+            "#48be95",
+            "#36a880",
+            "#2b9572",
+            "#138160"
+        ]
     }
 });
 
