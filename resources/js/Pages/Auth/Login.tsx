@@ -37,21 +37,6 @@ export default function Login({ status, canResetPassword }: Props) {
         <Guest>
             <Head title="ログイン" />
 
-            {status && (
-                <div className="mb-4 font-medium text-sm text-green-600">
-                    {status}
-                </div>
-            )}
-
-            {/* <div className="text-right">
-                <Link
-                    href={route("register")}
-                    className="underline mb-2 text-sm text-gray-600 hover:text-gray-900"
-                >
-                    新規登録はこちら
-                </Link>
-            </div> */}
-
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>

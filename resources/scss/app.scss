@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@mantine/core/styles.css";
+
 @import url("http://fonts.googleapis.com/css?family=Kaushan+Script");
 
 @layer base {
@@ -25,4 +27,8 @@
         --danger-dark: rgb(50, 1, 1);
         --danger-content: white;
     }
+}
+
+nav::-webkit-scrollbar {
+    display: none;
 }

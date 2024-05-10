@@ -2,6 +2,7 @@ import React from "react";
 import ApplicationLogo from "@/components/ApplicationLogo";
 import { Link } from "@inertiajs/inertia-react";
 import Toast from "@/components/Toast";
+import MainLogo from "@/components/Logo/MainLogo";
 
 interface Props {
     children: React.ReactNode;
@@ -14,7 +15,7 @@ export default function Guest({ children }: Props) {
             <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
                 <div className="text-center">
                     <Link href="/">
-                        <p className="text-3xl font-wml">World Motor Life</p>
+                        <MainLogo />
                         <p className="text-xl mt-2">(仮) New Crossmall</p>
                     </Link>
                 </div>
