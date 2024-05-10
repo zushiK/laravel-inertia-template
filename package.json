@@ -26,6 +26,12 @@
     },
     "dependencies": {
         "@inertiajs/inertia-react": "^0.8.1",
+        "@nextui-org/button": "^2.0.31",
+        "@nextui-org/dropdown": "^2.1.23",
+        "@nextui-org/navbar": "^2.0.30",
+        "@nextui-org/react": "^2.3.6",
+        "@nextui-org/system": "^2.1.2",
+        "framer-motion": "^11.1.9",
         "libphonenumber-js": "^1.11.1"
     }
 }
