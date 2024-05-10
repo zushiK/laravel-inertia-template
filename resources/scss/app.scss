@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("http://fonts.googleapis.com/css?family=Kaushan+Script");
+
 @layer base {
     :root {
-        --primary: #51C099;
-        --primary-dark: #38AE9D;
+        --primary: #51c099;
+        --primary-dark: #38ae9d;
         --primary-content: #393939;
         --secondary: #00dac0;
         --secondary-dark: #027f71;

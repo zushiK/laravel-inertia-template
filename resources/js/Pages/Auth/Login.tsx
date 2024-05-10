@@ -16,14 +16,8 @@ export default function Login({ status, canResetPassword }: Props) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
-        remember: false,
+        remember: false
     });
-
-    useEffect(() => {
-        return () => {
-            reset("password");
-        };
-    }, []);
 
     const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData(
@@ -36,7 +30,6 @@ export default function Login({ status, canResetPassword }: Props) {
 
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         post(route("login"));
     };
 
@@ -50,20 +43,20 @@ export default function Login({ status, canResetPassword }: Props) {
                 </div>
             )}
 
-            <ValidationErrors errors={errors} />
-
-            <div className="text-right">
+            {/* <div className="text-right">
                 <Link
                     href={route("register")}
                     className="underline mb-2 text-sm text-gray-600 hover:text-gray-900"
                 >
                     新規登録はこちら
                 </Link>
-            </div>
+            </div> */}
+
+            <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
                 <div>
-                    <Label forInput="email" value="Email" />
+                    <Label forInput="email" value="メールアドレス" />
 
                     <Input
                         type="text"
@@ -77,7 +70,7 @@ export default function Login({ status, canResetPassword }: Props) {
                 </div>
 
                 <div className="mt-4">
-                    <Label forInput="password" value="Password" />
+                    <Label forInput="password" value="パスワード" />
 
                     <Input
                         type="password"
@@ -89,7 +82,7 @@ export default function Login({ status, canResetPassword }: Props) {
                     />
                 </div>
 
-                <div className="block mt-4">
+                <div className="block mt-4 flex justify-center">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -103,22 +96,23 @@ export default function Login({ status, canResetPassword }: Props) {
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route("password.request")}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            パスワードを忘れた方はこちら
-                        </Link>
-                    )}
-
+                <div className="flex items-center justify-center gap-2 mt-4">
                     <Button
-                        className="ml-4 bg-gray-900"
+                        className="min-w-40 flex justify-center bg-gray-900"
                         processing={processing}
                     >
                         ログイン
                     </Button>
+
+                    <Link href={route("devlogin")}>
+                        <Button
+                            type="button"
+                            className="min-w-40 flex justify-center bg-green-900"
+                            processing={processing}
+                        >
+                            開発ログイン
+                        </Button>
+                    </Link>
                 </div>
             </form>
         </Guest>

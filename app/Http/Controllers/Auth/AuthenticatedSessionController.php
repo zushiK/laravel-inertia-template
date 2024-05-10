@@ -33,8 +33,21 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home', absolute: false));
+        return redirect()->intended(route('home', absolute: false))->with("success", "ログインしました");
     }
+
+
+    public function devlogin(Request $request): RedirectResponse
+    {
+        // ログイン成功
+        if (auth()->loginUsingId(env("DEVELOP_LOGIN_USER_ID", 1))) {
+            return redirect()->intended(route('home', absolute: false))->with("success", "ログインしました");
+        }
+
+        // ログイン失敗
+        return back()->with("error", "ログインに失敗しました");
+    }
+
 
     /**
      * Destroy an authenticated session.
