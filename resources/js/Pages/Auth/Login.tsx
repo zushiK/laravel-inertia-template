@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
 import Button from "@/components/Button";
 import Checkbox from "@/components/Checkbox";
-import Guest from "@/layouts/Guest";
 import Input from "@/components/Input";
 import Label from "@/components/Label";
 import ValidationErrors from "@/components/ValidationErrors";
+import Guest from "@/layouts/Guest";
 import { Head, Link, useForm } from "@inertiajs/react";
+import React from "react";
 
 interface Props {
     status: string;

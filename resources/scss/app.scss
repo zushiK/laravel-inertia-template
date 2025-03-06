@@ -1,10 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer theme, base, components, mantine, utilities;
 
-@import "@mantine/core/styles.css";
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 
-@import url("http://fonts.googleapis.com/css?family=Kaushan+Script");
+@layer mantine {
+    @import "@mantine/core/styles.layer.css";
+    // @import "@mantine/charts/styles.css";
+    @import "@mantine/dates/styles.css";
+    @import "@mantine/dropzone/styles.css";
+}
 
 @layer base {
     :root {
