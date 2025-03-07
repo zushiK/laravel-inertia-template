@@ -3,7 +3,7 @@
 
 .PHONY: bash
 bash: ##
-	docker exec -it WML-CROSSMALL-apache bash
+	docker exec -it web bash
 
 pma:
 	open http://localhost:8081

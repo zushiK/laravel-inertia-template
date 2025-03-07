@@ -56,7 +56,7 @@ export default function Guest({ children }: Props) {
                     <div className="text-center">
                         <Link href="/">
                             <MainLogo />
-                            <p className="text-xl mt-2">テストテンプレート</p>
+                            <p className="text-xl mt-2 font-wml">Login Page</p>
                         </Link>
                     </div>
 

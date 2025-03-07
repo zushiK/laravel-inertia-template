@@ -1,6 +1,6 @@
 import MainLogo from "@/components/Logo/MainLogo";
-import { ArrowLeftStartOnRectangleIcon } from "@heroicons/react/20/solid";
-import { Cog6ToothIcon } from "@heroicons/react/24/solid";
+import { HeartIconComponent } from "@/icons/shape/HeartIconComponent";
+
 import { Link } from "@inertiajs/react";
 import { ActionIcon, Group, Menu } from "@mantine/core";
 
@@ -18,14 +18,14 @@ export default function Header() {
                     <div>
                         <p className="text-sm font-bold">川村和志</p>
                         <p className="text-sm text-gray-500 leading-3">
-                            k.kawamura@sai.co.jp
+                            k.kawamura@sai.co.jp{" "}
                         </p>
                     </div>
                 </div>
                 <Menu withArrow position="bottom-end">
                     <Menu.Target>
                         <ActionIcon size={"lg"} variant="default">
-                            <Cog6ToothIcon className="w-5 h-5" />
+                            <HeartIconComponent className="size-6 transition-transform hover:scale-90" />
                         </ActionIcon>
                     </Menu.Target>
 
@@ -55,9 +55,9 @@ export default function Header() {
                         <Link method="post" href={route("logout")}>
                             <Menu.Item
                                 color="red"
-                                leftSection={
-                                    <ArrowLeftStartOnRectangleIcon className="w-4 h-4" />
-                                }
+                                // leftSection={
+                                //     <ArrowLeftStartOnRectangleIcon className="w-4 h-4" />
+                                // }
                             >
                                 ログアウト
                             </Menu.Item>

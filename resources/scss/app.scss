@@ -10,6 +10,8 @@
     @import "@mantine/dropzone/styles.css";
 }
 
+@import url("http://fonts.googleapis.com/css?family=Kaushan+Script");
+
 @layer base {
     :root {
         --primary: #51c099;
@@ -33,6 +35,6 @@
     }
 }
 
-nav::-webkit-scrollbar {
+.noscrollbar::-webkit-scrollbar {
     display: none;
 }
