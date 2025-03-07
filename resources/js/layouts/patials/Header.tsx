@@ -1,5 +1,5 @@
 import MainLogo from "@/components/Logo/MainLogo";
-import { HeartIconComponent } from "@/icons/shape/HeartIconComponent";
+import { Settings5IconComponent } from "@/icons/system/Settings5IconComponent";
 
 import { Link } from "@inertiajs/react";
 import { ActionIcon, Group, Menu } from "@mantine/core";
@@ -25,7 +25,7 @@ export default function Header() {
                 <Menu withArrow position="bottom-end">
                     <Menu.Target>
                         <ActionIcon size={"lg"} variant="default">
-                            <HeartIconComponent className="size-6 transition-transform hover:scale-90" />
+                            <Settings5IconComponent className="size-6 transition-transform hover:scale-90" />
                         </ActionIcon>
                     </Menu.Target>
 

@@ -6,6 +6,7 @@
 //     Squares2X2Icon,
 //     TruckIcon
 // } from "@heroicons/react/20/solid";
+import { Cube3dIconComponent } from "@/icons/device/Cube3dIconComponent";
 import { Link } from "@inertiajs/react";
 
 import { NavLink } from "@mantine/core";
@@ -21,7 +22,7 @@ export default function SideNavi() {
 
             <PariaGrouplNaviLink
                 label="商品管理"
-                // icon={<CubeIcon className="w-5 h-5" />}
+                icon={<Cube3dIconComponent className="w-5 h-5" />}
             >
                 <ParialChildNaviLink label="商品一覧" link="product.index" />
                 <ParialChildNaviLink
@@ -93,7 +94,7 @@ const PariaGrouplNaviLink = (props: PariaGrouplNaviLinkType) => {
         <NavLink
             defaultOpened={true}
             label="商品管理"
-            // leftSection={<CubeIcon className="w-5 h-5" />}
+            leftSection={<Cube3dIconComponent className="w-5 h-5" />}
             childrenOffset={28}
         >
             {props.children}
